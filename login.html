@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Delicious Bites</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      color: #e76f51;
+      margin-bottom: 30px;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0 20px 0;
+      border: 1.5px solid #f4a261;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #e76f51;
+      border: none;
+      padding: 15px 0;
+      width: 100%;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+
+    .signup-link a {
+      color: #e76f51;
+      text-decoration: none;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <div class="error" id="errorMsg"></div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (email === "user@example.com" && password === "password123") {
+        window.location.href = "index.html";
+      } else {
+        errorMsg.textContent = "Invalid email or password.";
+      }
+    });
+  </script>
+</body>
+</html>
